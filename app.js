@@ -18,18 +18,24 @@
 
   /* ---------- theme ---------- */
   var root = document.documentElement;
-  function applyTheme(mode) {
+  function applyTheme(mode, persist) {
     if (mode === "light" || mode === "dark") root.setAttribute("data-theme", mode);
     else { root.removeAttribute("data-theme"); mode = "system"; }
     document.querySelectorAll("[data-theme-set]").forEach(function (b) {
       b.setAttribute("aria-pressed", b.getAttribute("data-theme-set") === mode ? "true" : "false");
     });
+    if (persist === false) return; // link-only theme (?theme=dark) never overwrites the saved choice
     try { localStorage.setItem("majid-dashboard-theme", mode); } catch (e) {}
   }
   document.querySelectorAll("[data-theme-set]").forEach(function (b) {
     b.addEventListener("click", function () { applyTheme(b.getAttribute("data-theme-set")); });
   });
   try { applyTheme(localStorage.getItem("majid-dashboard-theme") || "system"); } catch (e) { applyTheme("system"); }
+  /* Shareable theme link: ?theme=dark, ?theme=light or ?theme=system */
+  try {
+    var themeParam = new URLSearchParams(window.location.search).get("theme");
+    if (themeParam === "light" || themeParam === "dark" || themeParam === "system") applyTheme(themeParam, false);
+  } catch (e) {}
 
   /* ---------- manual data (statuses, ideas, focus, token box) ---------- */
   var manual = { statuses: {}, ideas: [], focus: null, token: { limit: "", remaining: "", note: "" } };
