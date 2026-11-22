@@ -4,6 +4,10 @@ All notable changes to Open Dashboard are listed here. Version numbers follow `v
 
 ## [Unreleased]
 
+### Added
+
+- Shareable theme link: open the dashboard with `?theme=dark`, `?theme=light` or `?theme=system`. A link theme never overwrites the saved theme choice.
+
 ## [1.0.0] — 2026-11-22
 
 ### Added
