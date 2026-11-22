@@ -60,6 +60,7 @@ Then create the Release on GitHub from that tag.
 
 ## Rules
 
+- No AI branding, ever (permanent rule): never add any AI name, credit or watermark anywhere in this repo — no AI name, no "AI created" / "AI generated" / "made with AI", no AI badge. The usage/limits box is a manual field; call it "Usage and limits" and nothing else. If a change reintroduces such wording, remove it before merging.
 - Never commit directly to `main` — feature branch always.
 - Never put passwords, API keys or tokens in code or in chat. The token box is a manual field only.
 - Never show fake or sample numbers as if they are real — if data is not loaded yet, show "not loaded yet".

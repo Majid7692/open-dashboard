@@ -18,7 +18,7 @@ Live demo: https://majid7692.github.io/open-dashboard/
 - **Real numbers only** — repos, stars, forks, followers from the GitHub API, cached, with "last updated" always visible. Never fake numbers.
 - **Repo list + Ideas board** — statuses Idea / Planned / In Progress / Done (no "Pending"), 30-day staleness flag only on In Progress/Planned.
 - **Today's focus, top repos, languages** — top 3 by stars, top 5 languages with tap-to-filter, recent activity feed.
-- **Manual token box** — Musa AI usage limit and remaining balance, typed in by hand. No token in code, ever.
+- **Manual token box** — usage limit and remaining balance, typed in by hand. No token in code, ever.
 - **Phone-first + dark mode** — works from 320px, Light / Dark / System saved, 44px tap targets.
 
 ## What it shows
@@ -27,7 +27,7 @@ Live demo: https://majid7692.github.io/open-dashboard/
 - **Repo list:** every repo with stars, last push date, and status (Idea / Planned / In Progress / Done only — there is NO "Pending" status). Change a status on the card itself.
 - **Staleness warning:** flags ONLY an In Progress or Planned repo not touched in 30+ days. NEVER flags a Done repo — finished means finished. Never flags Idea repos either.
 - **Ideas board:** four columns — Ideas, Planned, In Progress, Done.
-- **Token / limits box:** my Musa AI usage limit and remaining balance. Manual entry only — there is no automatic API for this. Never asked for in chat.
+- **Token / limits box:** my usage limit and remaining balance. Manual entry only — there is no automatic API for this. Never asked for in chat.
 - **Refresh:** auto-refresh every 24 hours, plus a Refresh button. Always shows "last updated" time.
 - **Cached data:** the page reads saved JSON first (`data/current.json`). It calls GitHub live only when the cache is older than 24 hours or I tap Refresh — never on every page load.
 - **V1 extras:** phone-first single-column layout, dark mode (Light / Dark / System, choice saved), search (name + description) with status chips and sort by stars / last push / name, quick actions (tap a repo row to open it on GitHub, "+ New idea" button, status on the card), recent activity feed (last ~10 pushes / PRs / releases, from the GitHub Events API, cached with the 24h refresh), "Today's focus" card at the top, top repo highlight (top 3 by stars), language bar (top 5 languages by repo count, GitHub colours, tap to filter), JSON export/import backup of manual data only (statuses, ideas, focus pick, token box) in Settings.
@@ -163,7 +163,7 @@ events.slice(0, 10)
 
 - "Today's focus" card par kisi In Progress repo ya idea ko pick karo. Koi pick nahi hai to page khud sabse stale In Progress repo suggest karta hai.
 
-**9. Token / limits box (Musa AI)**
+**9. Token / limits box**
 
 - Page par token box mein apna usage limit aur remaining balance khud likho aur Save karo. Ye manual hai — koi automatic API nahi hai, aur koi token ya password yahan kabhi nahi likhna.
 
