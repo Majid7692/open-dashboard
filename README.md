@@ -2,7 +2,14 @@
 
 One screen showing my whole GitHub work — real repos, stars, last push dates, and an Ideas board. Built from scratch, my own code, under my name only.
 
-![Dashboard screenshot](screenshot.png)
+![Desktop — light mode](docs/screenshots/desktop-light.png)
+*Desktop — light mode, top numbers and repo list.*
+
+![Dark mode — Ideas board](docs/screenshots/dark-ideas-board.png)
+*Dark mode — Ideas board with all four columns.*
+
+![Mobile view](docs/screenshots/mobile.png)
+*Mobile — single-column layout, no sideways scroll.*
 
 Live demo: https://majid7692.github.io/open-dashboard/
 
@@ -164,7 +171,11 @@ events.slice(0, 10)
 
 - Settings mein **JSON export** se apna manual data (statuses, ideas, focus, token box) download karo. Wapas lane ke liye **JSON import** use karo. GitHub data (`data/current.json`) export nahi hota — wo `collect.py` se dobara ban jata hai.
 
-**11. Apna kaam save karne ka tareeqa (one project at a time)**
+**12. Theme link share karna**
+
+Page ke link mein `?theme=dark` (ya `?theme=light`, `?theme=system`) jod do — khulne par wohi theme lagega, aur dekhne wale ki saved theme choice nahi badlegi.
+
+**13. Apna kaam save karne ka tareeqa (one project at a time)**
 
 - Pehle project ko run karke confirm karo ke wo as-is kaam karta hai, phir chhoti change karo, test karo.
 - Pehli publish ke baad kabhi seedha `main` par commit mat karo — hamesha feature branch banao, phir merge karo.
