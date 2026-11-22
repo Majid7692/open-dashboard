@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Majid — Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="loading">
+<div class="wrap">
+
+  <header class="head">
+    <div>
+      <h1>Majid's Dashboard</h1>
+      <p class="sub">Majid7692 · one screen, my whole work</p>
+    </div>
+    <div class="head-actions">
+      <div class="theme" role="group" aria-label="Theme">
+        <button type="button" data-theme-set="light">Light</button>
+        <button type="button" data-theme-set="dark">Dark</button>
+        <button type="button" data-theme-set="system">System</button>
+      </div>
+      <button type="button" id="refreshBtn" class="refresh">Refresh</button>
+    </div>
+  </header>
+  <p class="updated">Last updated: <strong id="lastUpdated">not loaded yet</strong>
+    <span id="refreshState"></span></p>
+  <div id="errorBox" class="error" hidden>
+    <p id="errorText"></p>
+    <button type="button" id="retryBtn" class="btn">Retry</button>
+  </div>
+
+  <!-- Today's focus -->
+  <section class="card focus" aria-labelledby="focus-h">
+    <h2 id="focus-h">Today's focus</h2>
+    <p id="focusText">not loaded yet</p>
+    <p class="hint">Pick one In Progress repo or idea as today's focus. Nothing picked yet? The stalest In Progress item is suggested.</p>
+  </section>
+
+  <!-- Top numbers -->
+  <section class="stats" aria-label="Top numbers">
+    <div class="stat"><span class="num" id="statRepos">—</span><span class="lbl">Repos published</span></div>
+    <div class="stat"><span class="num" id="statStars">—</span><span class="lbl">Total stars</span></div>
+    <div class="stat"><span class="num" id="statForks">—</span><span class="lbl">Forks received</span></div>
+    <div class="stat"><span class="num" id="statFollowers">—</span><span class="lbl">Followers</span></div>
+  </section>
+
+  <!-- Top repo -->
+  <section class="card" aria-labelledby="top-h">
+    <h2 id="top-h">Top repo</h2>
+    <div id="topRepo">not loaded yet</div>
+  </section>
+
+  <!-- Language bar -->
+  <section class="card" aria-labelledby="lang-h">
+    <h2 id="lang-h">Languages</h2>
+    <div id="langBar">not loaded yet</div>
+    <p class="hint">Tap a language to filter the repo list. Tap again to clear.</p>
+  </section>
+
+  <!-- Recent activity -->
+  <section class="card" aria-labelledby="feed-h">
+    <h2 id="feed-h">Recent activity</h2>
+    <ul id="feed" class="feed"><li>not loaded yet</li></ul>
+  </section>
+
+  <!-- Repo list -->
+  <section class="card" aria-labelledby="repos-h">
+    <h2 id="repos-h">Repos</h2>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search name or description…" aria-label="Search repos">
+      <div class="chips" id="statusChips" role="group" aria-label="Filter by status">
+        <button type="button" data-status="All" aria-pressed="true">All</button>
+        <button type="button" data-status="Idea" aria-pressed="false">Idea</button>
+        <button type="button" data-status="Planned" aria-pressed="false">Planned</button>
+        <button type="button" data-status="In Progress" aria-pressed="false">In Progress</button>
+        <button type="button" data-status="Done" aria-pressed="false">Done</button>
+      </div>
+      <label class="sort">Sort
+        <select id="sortSel">
+          <option value="stars">Stars</option>
+          <option value="pushed">Last push</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+    </div>
+    <p id="repoCount" class="hint"></p>
+    <ul id="repoList" class="repos"><li>not loaded yet</li></ul>
+  </section>
+
+  <!-- Ideas board -->
+  <section aria-labelledby="board-h">
+    <h2 id="board-h">Ideas board</h2>
+    <p class="hint">Statuses are yours — change a repo's status on its card, or add an idea below.</p>
+    <button type="button" id="newIdeaBtn" class="btn">+ New idea</button>
+    <div class="board" id="board"></div>
+  </section>
+
+  <!-- Token / limits box + Settings -->
+  <section class="card" aria-labelledby="token-h">
+    <h2 id="token-h">Musa AI — usage &amp; limits</h2>
+    <p class="hint">Manual entry only. There is no automatic API for this. I never ask for it in chat.</p>
+    <form id="tokenForm">
+      <label>Usage limit <input id="tokenLimit" type="text" inputmode="decimal" placeholder="e.g. 100"></label>
+      <label>Remaining <input id="tokenRemaining" type="text" inputmode="decimal" placeholder="e.g. 42"></label>
+      <label>Note <input id="tokenNote" type="text" placeholder="e.g. resets 1st of the month"></label>
+      <button type="submit" class="btn">Save</button>
+      <span id="tokenSaved" class="saved"></span>
+    </form>
+    <h3>Backup</h3>
+    <p class="hint">Exports only your manual data (statuses, ideas, focus pick, token box). Cached GitHub data is not exported — it can be re-fetched.</p>
+    <button type="button" id="exportBtn" class="btn">Export backup (.json)</button>
+    <label class="btn file-btn">Import backup <input id="importFile" type="file" accept="application/json" hidden></label>
+    <span id="backupMsg" class="saved"></span>
+  </section>
+
+  <footer>
+    <p>Data: GitHub API, cached. Page reads saved JSON only and refreshes live data only when the cache is older than 24 hours or you tap Refresh.</p>
+    <p>Statuses, ideas, focus and token box are stored in your browser (localStorage) and in <code>data/manual.json</code> — they are yours, not GitHub's.</p>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
