@@ -8,11 +8,15 @@ All notable changes to Open Dashboard are listed here. Version numbers follow `v
 
 - Shareable theme link: open the dashboard with `?theme=dark`, `?theme=light` or `?theme=system`. A link theme never overwrites the saved theme choice.
 
+### Fixed
+
+- Removed all AI branding: the token-box heading is now "Usage and limits", and every AI-name mention is gone from the README, SECURITY.md and changelog. Permanent rule added to CONTRIBUTING.md — no AI name, credit or watermark anywhere in this repo, ever.
+
 ## [1.0.0] — 2026-11-22
 
 ### Added
 
-- One-screen live dashboard: top numbers (repos, stars, forks received, followers), repo list, Ideas board, manual Musa AI token/limits box.
+- One-screen live dashboard: top numbers (repos, stars, forks received, followers), repo list, Ideas board, manual token/limits box.
 - Real GitHub data only, cached in `data/` — never calls GitHub on every page load; auto-refresh every 24 hours plus a Refresh button, always showing "last updated".
 - V1 extras: phone-first layout, dark mode (Light / Dark / System, saved), search with status chips and sort, quick actions, recent activity feed, "Today's focus", top 3 repos by stars, top 5 languages bar with tap-to-filter, JSON export/import of manual data.
 - Loading skeleton (no layout jump); Refresh keeps old data on screen and shows "updating…" only.
